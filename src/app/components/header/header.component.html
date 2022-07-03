@@ -6,11 +6,13 @@
     <h1>App Star Wars</h1>
   </div>
 </section>
-<section class="header-bar-container row">
-  <div class="col-3 text-center">
-    <a href="">Home</a>
-  </div>
-  <div class="col-8">
-    <h2>Titulo sección</h2>
+<section class="header-bar-container">
+  <div class="header-bar-border row">
+    <div class="col-3 text-center bar-border-navigation">
+      <a routerLink="/home">Home</a>
+    </div>
+    <div class="col-8 bar-border-location">
+      <h2>{{routeName | titlecase}}</h2>
+    </div>
   </div>
 </section>
