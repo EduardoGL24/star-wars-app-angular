@@ -9,10 +9,21 @@
   color: #0F0E0E;
 }
 
+body{
+  background-color: #FFFDDE;
+}
 .row{
   --bs-gutter-x: 0;
 }
 
 a{
   text-decoration: none;
+  color: #0F0E0E;
+  &:hover{
+    color: #FCF9C6;
+  }
+}
+
+.active{
+  color: #FCF9C6;
 }
