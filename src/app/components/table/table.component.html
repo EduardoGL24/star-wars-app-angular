@@ -11,24 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tr *ngFor="let film of films;let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{film.title}}</td>
+        <td>{{film.episode_id}}</td>
+        <td>{{film.director}}</td>
+        <td>{{film.release_date}}</td>
         <td>
-          <a class="btn">Let's go!</a>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@lkjlkjlk</td>
-        <td>@mdo</td>
-        <td>
-          <a class="btn">Let's go!</a>
+          <a [routerLink]="['starship/',film.episode_id]" class="btn">Let's go!</a>
         </td>
       </tr>
     </tbody>
