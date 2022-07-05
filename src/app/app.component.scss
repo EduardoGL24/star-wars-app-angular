@@ -1,3 +1,6 @@
 .router-outlet-container{
   padding: 0 10px;
+  .router-outlet-content{
+    padding: 0 3%;
+  }
 }
