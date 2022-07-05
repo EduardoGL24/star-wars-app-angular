@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { FilmsResponse, FilmsResults } from '../interfaces/films-response';
-import { starshipsResponse } from '../interfaces/starships-response';
+import { Starship, StarshipList, starshipsResponse } from '../interfaces/starships-response';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,15 @@ export class ApiService {
       map(res => res.starships)
     );
   };
+
+  getStarship(idStarship: string):Observable<StarshipList>{
+    return this.http.get<Starship>(`${this.baseURL}/starships/${idStarship}`, {responseType: 'json'}).pipe(
+      map(res => ({
+        name: res.name,
+        url: res.url
+      }))
+    ); 
+  };
+
 }
  
