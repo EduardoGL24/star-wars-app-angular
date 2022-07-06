@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
+import { StarshipsService } from 'src/app/services/starships.service';
 
 @Component({
   selector: 'app-starship-form',
@@ -13,7 +14,7 @@ export class StarshipFormComponent implements OnInit, OnChanges {
 
   starshipForm: FormGroup;
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder) {
+  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private starshipsService: StarshipsService) {
     this.starshipForm = this.initializeForm();
    }
 
@@ -38,6 +39,7 @@ export class StarshipFormComponent implements OnInit, OnChanges {
       costIncredits: ['', Validators.pattern('[0-9]*(\.?)[0-9]')],
       consumables: [''],
       cargoCapacity: ['', Validators.pattern('[0-9]*(\.?)[0-9]')],
+      url: ['', Validators.required],
     });
   }
 
@@ -56,6 +58,7 @@ export class StarshipFormComponent implements OnInit, OnChanges {
         costIncredits: Number(data.cost_in_credits),
         consumables: data.consumables,
         cargoCapacity: Number(data.cargo_capacity),
+        url: data.url
       });
     }, err => {
       console.log(err);
@@ -63,11 +66,15 @@ export class StarshipFormComponent implements OnInit, OnChanges {
   }
 
   sendInfo(){
-    console.log(this.starshipForm);
+    this.starshipsService.addStarship(this.starshipForm.value);
   }
 
   validateInput(name: string){
     return this.starshipForm.get(name)?.invalid && this.starshipForm.get(name)?.touched
+  }
+
+  deleteStarship(){
+    this.starshipsService.deleteStarship(this.starshipForm.value);
   }
 
 }

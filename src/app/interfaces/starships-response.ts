@@ -18,7 +18,7 @@ export interface starshipsResponse {
 export interface Starship {
   name:                   string;
   model:                  string;
-  manufacturer:           string;
+  manufacturer:           number;
   cost_in_credits:        string;
   length:                 string;
   max_atmosphering_speed: string;
@@ -31,7 +31,7 @@ export interface Starship {
   starship_class:         string;
   pilots:                 any[];
   films:                  string[];
-  created:                Date;
+  created?:                Date;
   edited:                 Date;
   url:                    string;
 }
