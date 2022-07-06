@@ -14,6 +14,8 @@ export class StarshipsComponent implements OnInit {
   private starshipsIds: string[] = [];
   private routeSub!: Subscription;
   public starShips: StarshipList[] = [];
+  public showForm: boolean = false;
+  public idStarship: string = '';
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
     this.routeSub = this.route.params.subscribe(params => {
@@ -39,7 +41,7 @@ export class StarshipsComponent implements OnInit {
 
   getStarships(){
     this.starshipsIds.forEach(id => {
-      this.apiService.getStarship(id).subscribe(res => {
+      this.apiService.getStarshipToList(id).subscribe(res => {
         this.starShips.push(res);
       }, err => {
         console.log(err);
@@ -47,4 +49,10 @@ export class StarshipsComponent implements OnInit {
     })
   }
 
+  sendIdStarship(id: string){
+    console.log('se mando');
+    console.log(id);
+    this.idStarship = id;
+    console.log(this.idStarship);
+  }
 }

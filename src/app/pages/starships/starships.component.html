@@ -1,5 +1,8 @@
-<section class="starships-main-container">
+<section *ngIf="idStarship === ''" class="starships-main-container">
   <ul *ngFor="let starship of starShips" class="list-group list-group-flush">
-    <li class="list-group-item list-group-item-action">{{starship.name}}</li>
+    <button class="list-group-item list-group-item-action" (click)="sendIdStarship(starship.url)">{{starship.name}}</button>
   </ul>
+</section>
+<section *ngIf="idStarship !== ''" class="starship-form-container">
+  <app-starship-form [idStarship]="idStarship"></app-starship-form>
 </section>

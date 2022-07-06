@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StarshipsComponent } from './pages/starships/starships.component';
+import { StarshipFormComponent } from './pages/starship-form/starship-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { StarshipsComponent } from './pages/starships/starships.component';
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
-    StarshipsComponent
+    StarshipsComponent,
+    StarshipFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

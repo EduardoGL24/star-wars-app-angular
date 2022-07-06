@@ -25,14 +25,17 @@ export class ApiService {
     );
   };
 
-  getStarship(idStarship: string):Observable<StarshipList>{
+  getStarshipToList(idStarship: string):Observable<StarshipList>{
     return this.http.get<Starship>(`${this.baseURL}/starships/${idStarship}`, {responseType: 'json'}).pipe(
       map(res => ({
         name: res.name,
-        url: res.url
+        url: res.url.replace(/[^0-9]+/g, "")
       }))
     ); 
   };
+
+  getStarship(idStarship: string):Observable<Starship>{
+    return this.http.get<Starship>(`${this.baseURL}/starships/${idStarship}`, {responseType: 'json'})};
 
 }
  
