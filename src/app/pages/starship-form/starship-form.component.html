@@ -4,7 +4,8 @@
       <label>Name</label><span>*</span>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="name" formControlName="name" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('name')" formControlName="name" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('name')">Please insert name</small>
     </div>
   </div>
   <div class="form-group row">
@@ -12,7 +13,8 @@
       <label>Model</label><span>*</span>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="starshipModel" formControlName="starshipModel" type="text" class="form-control" placeholder="Model">
+      <input [class.is-invalid]="validateInput('starshipModel')" formControlName="starshipModel" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('starshipModel')">Please insert starship model</small>
     </div>
   </div>
   <div class="form-group row">
@@ -20,7 +22,8 @@
       <label>Passengers</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="passengers" formControlName="passengers" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('passengers')" formControlName="passengers" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('passengers')">Please insert only numbers</small>
     </div>
   </div>
   <div class="form-group row">
@@ -28,7 +31,7 @@
       <label>Starship Class</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="starshipClass" formControlName="starshipClass" type="text" class="form-control" placeholder="Name">
+      <input formControlName="starshipClass" type="text" class="form-control">
     </div>
   </div>
   <div class="form-group row">
@@ -36,7 +39,8 @@
       <label>Max Atmosphering Speed</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="maxAtmospheringSpeed" formControlName="maxAtmospheringSpeed" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('maxAtmospheringSpeed')" formControlName="maxAtmospheringSpeed" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('maxAtmospheringSpeed')">Please insert only numbers</small>
     </div>
   </div>
   <div class="form-group row">
@@ -44,7 +48,8 @@
       <label>Manufacturer</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="manufacturer" formControlName="manufacturer" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('manufacturer')" formControlName="manufacturer" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('manufacturer')">The maximum characters allowed is 100</small>
     </div>
   </div>
   <div class="form-group row">
@@ -52,7 +57,8 @@
       <label>Hyperdrive Rating</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="hyperdriveRating" formControlName="hyperdriveRating" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('hyperdriveRating')" formControlName="hyperdriveRating" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('hyperdriveRating')">Please insert only numbers</small>
     </div>
   </div>
   <div class="form-group row">
@@ -60,7 +66,8 @@
       <label>Crew</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="crew" formControlName="crew" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('crew')" formControlName="crew" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('crew')">Please insert only numbers</small>
     </div>
   </div>
   <div class="form-group row">
@@ -68,7 +75,8 @@
       <label>Length</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="starshipLength" formControlName="starshipLength" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('starshipLength')" formControlName="starshipLength" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('starshipLength')">Please insert only numbers</small>
     </div>
   </div>
   <div class="form-group row">
@@ -76,7 +84,8 @@
       <label>Cost in credits</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="costIncredits" formControlName="costIncredits" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('costIncredits')" formControlName="costIncredits" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('costIncredits')">Please insert only numbers</small>
     </div>
   </div>
   <div class="form-group row">
@@ -84,7 +93,7 @@
       <label>Consumables</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="consumables" formControlName="consumables" type="text" class="form-control" placeholder="Name">
+      <input formControlName="consumables" type="text" class="form-control">
     </div>
   </div>
   <div class="form-group row">
@@ -92,7 +101,8 @@
       <label>Cargo Capacity</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="cargoCapacity" formControlName="cargoCapacity" type="text" class="form-control" placeholder="Name">
+      <input [class.is-invalid]="validateInput('cargoCapacity')" formControlName="cargoCapacity" type="text" class="form-control">
+      <small class="text-danger" *ngIf="validateInput('cargoCapacity')">Please insert only numbers</small>
     </div>
   </div>
   <button type="submit" class="btn btn-primary-app">Save</button>

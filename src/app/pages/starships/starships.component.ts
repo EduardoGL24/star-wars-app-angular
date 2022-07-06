@@ -50,9 +50,6 @@ export class StarshipsComponent implements OnInit {
   }
 
   sendIdStarship(id: string){
-    console.log('se mando');
-    console.log(id);
     this.idStarship = id;
-    console.log(this.idStarship);
   }
 }

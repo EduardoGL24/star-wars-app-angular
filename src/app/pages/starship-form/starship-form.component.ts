@@ -43,7 +43,6 @@ export class StarshipFormComponent implements OnInit, OnChanges {
 
   getDataStarship(id: string){
     this.apiService.getStarship(id).subscribe(data => {
-      console.log(data);
       this.starshipForm.setValue({
         name: data.name,
         starshipModel: data.model,
@@ -58,7 +57,6 @@ export class StarshipFormComponent implements OnInit, OnChanges {
         consumables: data.consumables,
         cargoCapacity: Number(data.cargo_capacity),
       });
-
     }, err => {
       console.log(err);
     })
@@ -66,6 +64,10 @@ export class StarshipFormComponent implements OnInit, OnChanges {
 
   sendInfo(){
     console.log(this.starshipForm);
+  }
+
+  validateInput(name: string){
+    return this.starshipForm.get(name)?.invalid && this.starshipForm.get(name)?.touched
   }
 
 }
