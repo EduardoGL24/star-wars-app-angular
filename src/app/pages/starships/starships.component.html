@@ -3,6 +3,9 @@
     <button class="list-group-item list-group-item-action" (click)="sendIdStarship(starship.url)">{{starship.name}}</button>
   </ul>
 </section>
-<section *ngIf="idStarship !== ''" class="starship-form-container">
+<section class="starship-form-container">
+  <div class="starship-button-container">
+    <button class="btn btn-primary-app" (click)="idStarship = ''">Return</button>
+  </div>
   <app-starship-form [idStarship]="idStarship"></app-starship-form>
 </section>

@@ -1,18 +1,18 @@
-<form>
+<form [formGroup]="starshipForm" (ngSubmit)="sendInfo()">
   <div class="form-group row">
     <div class="form-group-title col-lg-4">
-      <label>Name</label>
+      <label>Name</label><span>*</span>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="name" [(ngModel)]="name" type="text" class="form-control" placeholder="Name">
+      <input name="name" formControlName="name" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
     <div class="form-group-title col-lg-4">
-      <label>Model</label>
+      <label>Model</label><span>*</span>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="starshipModel" [(ngModel)]="starshipModel" type="text" class="form-control" placeholder="Model">
+      <input name="starshipModel" formControlName="starshipModel" type="text" class="form-control" placeholder="Model">
     </div>
   </div>
   <div class="form-group row">
@@ -20,7 +20,7 @@
       <label>Passengers</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="passengers" [(ngModel)]="passengers" type="text" class="form-control" placeholder="Name">
+      <input name="passengers" formControlName="passengers" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -28,7 +28,7 @@
       <label>Starship Class</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="starshipClass" [(ngModel)]="starshipClass" type="text" class="form-control" placeholder="Name">
+      <input name="starshipClass" formControlName="starshipClass" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -36,7 +36,7 @@
       <label>Max Atmosphering Speed</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="maxAtmospheringSpeed" [(ngModel)]="maxAtmospheringSpeed" type="text" class="form-control" placeholder="Name">
+      <input name="maxAtmospheringSpeed" formControlName="maxAtmospheringSpeed" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -44,7 +44,7 @@
       <label>Manufacturer</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="manufacturer" [(ngModel)]="manufacturer" type="text" class="form-control" placeholder="Name">
+      <input name="manufacturer" formControlName="manufacturer" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -52,7 +52,7 @@
       <label>Hyperdrive Rating</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="hyperdriveRating" [(ngModel)]="hyperdriveRating" type="text" class="form-control" placeholder="Name">
+      <input name="hyperdriveRating" formControlName="hyperdriveRating" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -60,7 +60,7 @@
       <label>Crew</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="crew" [(ngModel)]="crew" type="text" class="form-control" placeholder="Name">
+      <input name="crew" formControlName="crew" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -68,7 +68,7 @@
       <label>Length</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="starshipLength" [(ngModel)]="starshipLength" type="text" class="form-control" placeholder="Name">
+      <input name="starshipLength" formControlName="starshipLength" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -76,7 +76,7 @@
       <label>Cost in credits</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="costIncredits" [(ngModel)]="costIncredits" type="text" class="form-control" placeholder="Name">
+      <input name="costIncredits" formControlName="costIncredits" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -84,7 +84,7 @@
       <label>Consumables</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="consumables" [(ngModel)]="consumables" type="text" class="form-control" placeholder="Name">
+      <input name="consumables" formControlName="consumables" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
   <div class="form-group row">
@@ -92,8 +92,8 @@
       <label>Cargo Capacity</label>
     </div>
     <div class="form-group-input col-lg-8">
-      <input name="cargoCapacity" [(ngModel)]="cargoCapacity" type="text" class="form-control" placeholder="Name">
+      <input name="cargoCapacity" formControlName="cargoCapacity" type="text" class="form-control" placeholder="Name">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary-app">Save</button>
 </form>

@@ -9,7 +9,7 @@
             <th scope="col">Episode</th>
             <th scope="col">Director</th>
             <th scope="col">Release Date</th>
-            <th scope="col">Consult</th>
+            <th scope="col">Starships</th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
             <td>{{film.director}}</td>
             <td>{{film.release_date}}</td>
             <td>
-              <a [routerLink]="['/starships/',film.episode_id]" class="btn">More</a>
+              <a [routerLink]="['/starships/',film.episode_id]" class="btn btn-primary-app">View</a>
             </td>
           </tr>
         </tbody>
