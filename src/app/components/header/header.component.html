@@ -1,16 +1,35 @@
 <section class="header-main-container row">
-  <div class="col-3 header-image-container text-center">
+  <div class="col-3 col-lg-2 header-image-container text-center">
     <img src="../../../assets/images/logo.svg" alt="logo star wars">
   </div>
-  <div class="col-8 header-title-container text-center">
+  <div class="col-9 col-lg-10 header-title-container text-center">
     <h1>App Star Wars</h1>
   </div>
 </section>
-<section class="header-bar-container row">
-  <div class="col-3 text-center">
-    <a href="">Home</a>
+<section class="header-bar-container">
+  <div class="header-bar-border row">
+    <div class="col-lg-2 col-3 text-center bar-border-navigation">
+      <a routerLink="/films">Home</a>
+    </div>
+    <div class="col-lg-10 col-9 bar-border-location">
+      <h2>{{routeName | titlecase}}</h2>
+    </div>
   </div>
-  <div class="col-8">
-    <h2>Titulo sección</h2>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-responsive-container">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+      </button>
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/films" (click)="isMenuCollapsed = true">Films</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/starships/1']" (click)="isMenuCollapsed = true">Starships</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </section>

@@ -6,5 +6,40 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: #FFFDDE;
+}
+.row{
+  --bs-gutter-x: 0;
+}
+
+a{
+  text-decoration: none;
   color: #0F0E0E;
+  &:hover{
+    color: #FCF9C6;
+  }
+}
+
+.active{
+  color: #FCF9C6;
+}
+
+.btn-primary-app{
+  background-color: #82954b;
+  color: #FCF9C6;
+  &:hover{
+    background-color: #6c7c3d;
+    color: #e4e1b3;
+  }
+  &:focus{
+    box-shadow: 0 0 0 0.25rem rgb(130 149 75 / 25%);
+  }
+}
+
+.loader-container{
+  text-align: center;
+  padding-top: 10%;
 }

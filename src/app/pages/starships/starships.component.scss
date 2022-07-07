@@ -1,0 +1,12 @@
+.starships-main-container .list-group-item{
+  border-bottom-width: 1px;
+  background-color: #FFFDDE;
+  &:hover{
+    background-color: #82954B;
+    color: #FCF9C6;
+  }
+};
+.starship-form-container .starship-button-container{
+  text-align: right;
+  margin-bottom: 15px;
+};

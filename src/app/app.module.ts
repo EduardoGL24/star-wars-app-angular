@@ -3,13 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
+
+//Modules
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+//Components
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TableComponent } from './components/table/table.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoaderComponent } from './components/loader/loader.component';
+
+//Pages
+import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { StarshipsComponent } from './pages/starships/starships.component';
+import { StarshipFormComponent } from './pages/starship-form/starship-form.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +28,17 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-    TableComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    StarshipsComponent,
+    StarshipFormComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

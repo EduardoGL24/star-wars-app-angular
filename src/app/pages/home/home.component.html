@@ -1,1 +1,33 @@
-<p>home works!</p>
+<section class="home-main-container">
+  <section *ngIf="showLoader" class="loader-container">
+    <app-loader></app-loader>
+  </section>
+  <div class="home-table-container" *ngIf="!showLoader">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Movie</th>
+            <th scope="col">Episode</th>
+            <th scope="col">Director</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Starships</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let film of films;let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{film.title}}</td>
+            <td>{{film.episode_id}}</td>
+            <td>{{film.director}}</td>
+            <td>{{film.release_date | date: 'dd/MM/YYYY'}}</td>
+            <td>
+              <a [routerLink]="['/starships/',film.episode_id]" class="btn btn-primary-app">View</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
