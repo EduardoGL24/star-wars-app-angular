@@ -46,6 +46,8 @@ export class StarshipFormComponent implements OnInit, OnChanges {
       } else {
         this.getDataStarship(this.idStarship);
       }
+    } else {
+      this.getDataStarship(this.idStarship);
     }
   }
 
