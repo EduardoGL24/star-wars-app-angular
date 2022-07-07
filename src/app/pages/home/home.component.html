@@ -21,7 +21,7 @@
             <td>{{film.title}}</td>
             <td>{{film.episode_id}}</td>
             <td>{{film.director}}</td>
-            <td>{{film.release_date}}</td>
+            <td>{{film.release_date | date: 'dd/MM/YYYY'}}</td>
             <td>
               <a [routerLink]="['/starships/',film.episode_id]" class="btn btn-primary-app">View</a>
             </td>

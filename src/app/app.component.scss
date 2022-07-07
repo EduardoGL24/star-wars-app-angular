@@ -12,3 +12,14 @@
     padding: 0 3%;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .router-outlet-container{
+    .router-outlet-navbar{
+      display: none;
+    }
+    .router-outlet-content{
+      width: 100%;
+    }
+  }
+}

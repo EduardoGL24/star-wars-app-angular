@@ -5,9 +5,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { StarshipsComponent } from './pages/starships/starships.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'films', component: HomeComponent },
   { path: 'starships/:id', component: StarshipsComponent },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '',   redirectTo: '/films', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

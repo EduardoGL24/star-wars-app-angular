@@ -9,7 +9,8 @@ import { Location } from '@angular/common';
 
 export class HeaderComponent implements OnInit {
 
-  routeName: string = '';
+  public routeName: string = '';
+  public isMenuCollapsed = true;
   event$
  
   constructor(private location: Location) {

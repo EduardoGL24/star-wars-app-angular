@@ -14,3 +14,18 @@
     }
   }
 }
+.navbar-responsive-container{
+  background-color: #82954B;
+  padding: 10px 15px;
+  display: none;
+  .navbar-toggler{
+    border: none;
+  }
+  li{
+    cursor: pointer;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
