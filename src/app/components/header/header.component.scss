@@ -46,13 +46,8 @@
   .header-main-container .header-image-container img{
     width: 40%;
   }
-  .header-bar-container{
-    .navbar-responsive-container{
-      display: block;
-    }
-    .header-bar-border .bar-border-location h2{
-      margin-top: -2px;
-    }
+  .header-bar-container .header-bar-border .bar-border-location h2{
+    margin-top: -2px;
   }
 }
 
@@ -60,8 +55,13 @@
   .header-main-container .header-title-container{
     padding-top: 2%;
   }
-  .header-bar-container .header-bar-border .bar-border-location h2{
-    margin-top: 0;
+  .header-bar-container{
+    .navbar-responsive-container{
+      display: block;
+    }
+    .header-bar-border .bar-border-location h2{
+      margin-top: 0px;
+    }
   }
 }
 

@@ -46,6 +46,8 @@ export class StarshipFormComponent implements OnInit, OnChanges {
       } else {
         this.getDataStarship(this.idStarship);
       }
+    } else {
+      this.getDataStarship(this.idStarship);
     }
   }
 
@@ -106,6 +108,9 @@ export class StarshipFormComponent implements OnInit, OnChanges {
         this.starshipsService.addStarship(this.starshipForm.value);
         this.buttonDelete = true;
       }
+    } else {
+      this.starshipsService.addStarship(this.starshipForm.value);
+      this.buttonDelete = true;
     }
   }
 
