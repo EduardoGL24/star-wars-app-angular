@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StarshipModel } from 'src/app/models/starship.model';
 import { ApiService } from 'src/app/services/api.service';
 import { StarshipsService } from 'src/app/services/starships.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-starship-form',
@@ -13,7 +14,9 @@ export class StarshipFormComponent implements OnInit, OnChanges {
 
   @Input() idStarship: string = '';
 
-  starshipForm: FormGroup;
+  public starshipForm: FormGroup;
+  public buttonDelete: boolean = false;
+  public showLoader: boolean = true;
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder, private starshipsService: StarshipsService) {
     this.starshipForm = this.initializeForm();
@@ -34,10 +37,12 @@ export class StarshipFormComponent implements OnInit, OnChanges {
     if(storageData){
       const starshipToEdit = JSON.parse(storageData).find((el: StarshipModel)=> el.url.replace(regEx, "") === this.idStarship);
       if(starshipToEdit !== undefined){
+        this.buttonDelete = true;
         this.starshipForm.setValue({
           ...starshipToEdit
         });
         this.starshipsService.saveToStorage();
+        this.showLoader = false;
       } else {
         this.getDataStarship(this.idStarship);
       }
@@ -79,8 +84,14 @@ export class StarshipFormComponent implements OnInit, OnChanges {
         cargoCapacity: Number(data.cargo_capacity),
         url: data.url
       });
+      this.showLoader = false;
     }, err => {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An unexpected error has occurred!',
+        showConfirmButton: false,
+      })
     })
   }
 
@@ -93,9 +104,9 @@ export class StarshipFormComponent implements OnInit, OnChanges {
         this.starshipsService.editStarship(this.starshipForm.value);
       } else {
         this.starshipsService.addStarship(this.starshipForm.value);
+        this.buttonDelete = true;
       }
     }
-    
   }
 
   validateInput(name: string){
@@ -103,7 +114,21 @@ export class StarshipFormComponent implements OnInit, OnChanges {
   }
 
   deleteStarship(){
-    this.starshipsService.deleteStarship(this.starshipForm.value);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#82954b',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.starshipsService.deleteStarship(this.starshipForm.value);
+        this.buttonDelete = false;
+        this.getDataStarship(this.idStarship);
+      }
+    })
   }
 
 }

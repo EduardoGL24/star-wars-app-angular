@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StarshipsComponent } from './pages/starships/starships.component';
 import { StarshipFormComponent } from './pages/starship-form/starship-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     PageNotFoundComponent,
     StarshipsComponent,
-    StarshipFormComponent
+    StarshipFormComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

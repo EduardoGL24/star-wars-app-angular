@@ -1,11 +1,18 @@
-<section *ngIf="idStarship === ''" class="starships-main-container">
-  <ul *ngFor="let starship of starShips" class="list-group list-group-flush">
-    <button class="list-group-item list-group-item-action" (click)="sendIdStarship(starship.url)">{{starship.name}}</button>
-  </ul>
+<section *ngIf="showLoader" class="loader-container">
+  <app-loader></app-loader>
 </section>
-<section class="starship-form-container">
-  <div class="starship-button-container">
-    <button class="btn btn-primary-app" (click)="idStarship = ''">Return</button>
-  </div>
-  <app-starship-form [idStarship]="idStarship"></app-starship-form>
-</section>
+<ng-template [ngIf]="idStarship === ''">
+  <section class="starships-main-container">
+    <ul *ngFor="let starship of starShips" class="list-group list-group-flush">
+      <button class="list-group-item list-group-item-action" (click)="sendIdStarship(starship.url)">{{starship.name}}</button>
+    </ul>
+  </section>
+</ng-template>
+<ng-template [ngIf]="idStarship !== ''">
+  <section class="starship-form-container">
+    <div class="starship-button-container">
+      <button class="btn btn-primary-app" (click)="idStarship = ''">Return</button>
+    </div>
+    <app-starship-form [idStarship]="idStarship"></app-starship-form>
+  </section>
+</ng-template>

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { StarshipList } from 'src/app/interfaces/starships-response';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-starships',
@@ -16,6 +17,7 @@ export class StarshipsComponent implements OnInit {
   public starShips: StarshipList[] = [];
   public showForm: boolean = false;
   public idStarship: string = '';
+  public showLoader: boolean = true;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
     this.routeSub = this.route.params.subscribe(params => {
@@ -35,7 +37,12 @@ export class StarshipsComponent implements OnInit {
       this.starshipsIds = res.map(starship => starship.replace(/[^0-9]+/g, ""));
       this.getStarships();
     }, err => {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An unexpected error has occurred!',
+        showConfirmButton: false,
+      })
     });
   }
 
@@ -43,8 +50,14 @@ export class StarshipsComponent implements OnInit {
     this.starshipsIds.forEach(id => {
       this.apiService.getStarshipToList(id).subscribe(res => {
         this.starShips.push(res);
+        this.showLoader = false;
       }, err => {
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'An unexpected error has occurred!',
+          showConfirmButton: false,
+        })
       });
     })
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Starship } from '../interfaces/starships-response';
 import { StarshipModel } from '../models/starship.model';
 
@@ -17,6 +18,12 @@ export class StarshipsService {
     const editStartship = new StarshipModel(starship);
     this.starshipsData.push(editStartship);
     this.saveToStorage();
+    Swal.fire({
+      icon: 'success',
+      title: 'Starship has been saved!',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   saveToStorage(){
@@ -35,6 +42,12 @@ export class StarshipsService {
       if(el.url === starshipEdit.url){
         this.starshipsData[i] = starshipEdit;
         this.saveToStorage();
+        Swal.fire({
+          icon: 'success',
+          title: 'Starship has been edit!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     })
   }
@@ -42,6 +55,12 @@ export class StarshipsService {
   deleteStarship(starships: StarshipModel){
     this.starshipsData = this.starshipsData.filter( starship => starship.url !== starships.url);
     this.saveToStorage();
+    Swal.fire({
+      icon: 'success',
+      title: 'Deleted!',
+      text: 'Starship has been deleted.',
+      confirmButtonColor: '#82954b',
+    })
   }
   
 }

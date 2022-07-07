@@ -1,4 +1,7 @@
-<form [formGroup]="starshipForm" (ngSubmit)="sendInfo()">
+<section *ngIf="showLoader" class="loader-container">
+  <app-loader></app-loader>
+</section>
+<form *ngIf="!showLoader" [formGroup]="starshipForm" (ngSubmit)="sendInfo()">
   <div class="form-group row">
     <div class="form-group-title col-lg-4">
       <label>Name</label><span>*</span>
@@ -106,5 +109,5 @@
     </div>
   </div>
   <button type="submit" class="btn btn-primary-app" [disabled]="!starshipForm.valid">Save</button>
-  <button type="button" class="btn btn-danger" (click)="deleteStarship()">Delete</button>
+  <button type="button" class="btn btn-danger" *ngIf="buttonDelete" (click)="deleteStarship()">Delete</button>
 </form>
