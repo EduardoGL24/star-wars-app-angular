@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StarshipModel } from 'src/app/models/starship.model';
 import { ApiService } from 'src/app/services/api.service';
 import { StarshipsService } from 'src/app/services/starships.service';
 
@@ -22,7 +23,25 @@ export class StarshipFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(){
-    this.idStarship !== '' ? this.getDataStarship(this.idStarship) : '';
+    if(this.idStarship !== ''){
+      this.validatestorage();
+    }
+  }
+
+  validatestorage(){
+    const storageData = localStorage.getItem('starshipsData');
+    const regEx = /[^0-9]+/g;
+    if(storageData){
+      const starshipToEdit = JSON.parse(storageData).find((el: StarshipModel)=> el.url.replace(regEx, "") === this.idStarship);
+      if(starshipToEdit !== undefined){
+        this.starshipForm.setValue({
+          ...starshipToEdit
+        });
+        this.starshipsService.saveToStorage();
+      } else {
+        this.getDataStarship(this.idStarship);
+      }
+    }
   }
 
   initializeForm(){
@@ -66,7 +85,17 @@ export class StarshipFormComponent implements OnInit, OnChanges {
   }
 
   sendInfo(){
-    this.starshipsService.addStarship(this.starshipForm.value);
+    const storageData = localStorage.getItem('starshipsData');
+    const regEx = /[^0-9]+/g;
+    if(storageData){
+      const starshipToEdit = JSON.parse(storageData).find((el: StarshipModel)=> el.url.replace(regEx, "") === this.idStarship);
+      if(starshipToEdit !== undefined){
+        this.starshipsService.editStarship(this.starshipForm.value);
+      } else {
+        this.starshipsService.addStarship(this.starshipForm.value);
+      }
+    }
+    
   }
 
   validateInput(name: string){

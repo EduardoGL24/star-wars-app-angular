@@ -105,6 +105,6 @@
       <small class="text-danger" *ngIf="validateInput('cargoCapacity')">Please insert only numbers</small>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary-app">Save</button>
+  <button type="submit" class="btn btn-primary-app" [disabled]="!starshipForm.valid">Save</button>
   <button type="button" class="btn btn-danger" (click)="deleteStarship()">Delete</button>
 </form>

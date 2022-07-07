@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Starship } from '../interfaces/starships-response';
 import { StarshipModel } from '../models/starship.model';
 
 @Injectable({
@@ -24,12 +25,18 @@ export class StarshipsService {
 
   getStorage(){
     const storageData = localStorage.getItem('starshipsData');
-    if(storageData)
-    this.starshipsData = JSON.parse(storageData);
+    if(storageData){
+      return this.starshipsData = JSON.parse(storageData);
+    }
   }
 
-  editStarship(){
-
+  editStarship(starshipEdit: StarshipModel){
+    this.starshipsData.forEach((el, i) => {
+      if(el.url === starshipEdit.url){
+        this.starshipsData[i] = starshipEdit;
+        this.saveToStorage();
+      }
+    })
   }
 
   deleteStarship(starships: StarshipModel){
