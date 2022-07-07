@@ -108,6 +108,9 @@ export class StarshipFormComponent implements OnInit, OnChanges {
         this.starshipsService.addStarship(this.starshipForm.value);
         this.buttonDelete = true;
       }
+    } else {
+      this.starshipsService.addStarship(this.starshipForm.value);
+      this.buttonDelete = true;
     }
   }
 
